@@ -11,9 +11,10 @@
 
   outputs = inputs@{ self, nix-darwin, nixpkgs, mac-app-util, nix-homebrew }:
   let
-    configuration = { pkgs,... }: {
+    configuration = { pkgs, config,... }: {
       # List packages installed in system profile. To search by name, run:
       # $ nix-env -qaP | grep wget
+      nixpkgs.config.allowUnfree = true;
       environment.systemPackages =
         [
           pkgs.neovim
@@ -28,6 +29,22 @@
           pkgs.oh-my-zsh
           pkgs.pyenv
           pkgs.autojump
+          # pkgs.kubernetes
+          pkgs.kubectl
+          pkgs.kubernetes-helm
+          pkgs.terraform
+          pkgs.httpie
+          pkgs.zsh-syntax-highlighting
+          pkgs.zsh-history-substring-search
+          pkgs.zsh-autosuggestions
+          pkgs.gh
+          pkgs.zsh-powerlevel10k
+          pkgs.openssl
+          pkgs.zinit
+          pkgs.sublime
+          pkgs.sublime-merge
+          pkgs.vscode
+          pkgs.mongodb-compass
         ];
       homebrew = {
         enable = true;
@@ -39,10 +56,19 @@
           "hammerspoon"
           "iina"
         ];
+        masApps = {
+          "Slack" = 803453959;
+        };
         onActivation.cleanup = "zap";
         onActivation.autoUpdate = true;
         onActivation.upgrade = true;
       };
+
+
+      system.defaults = {
+        dock.autohide = true;
+      };
+
       # Necessary for using flakes on this system.
       nix.settings.experimental-features = "nix-command flakes";
 
