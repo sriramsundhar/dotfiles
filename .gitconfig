@@ -1,6 +1,6 @@
 [user]
-	email = ssriram2004@gmail.com
-	name = Sriram Sundharesan
+	email = email@test.com
+	name = name
 [alias]
     st = status
     ci = commit
@@ -13,3 +13,10 @@
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
+[pull]
+	rebase = true
+[merge]
+	tool = smerge
+[mergetool "smerge"]
+	trustExitCode = true
+	cmd = smerge mergetool \"$BASE\" \"$LOCAL\" \"$REMOTE\" -o \"$MERGED\"

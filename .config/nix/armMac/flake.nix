@@ -11,11 +11,13 @@
 
   outputs = inputs@{ self, nix-darwin, nixpkgs, mac-app-util, nix-homebrew }:
   let
-    configuration = { pkgs,... }: {
+    configuration = { pkgs, config,... }: {
       # List packages installed in system profile. To search by name, run:
       # $ nix-env -qaP | grep wget
+      nixpkgs.config.allowUnfree = true;
       environment.systemPackages =
         [
+          pkgs.vim
           pkgs.neovim
           pkgs.tmux
           pkgs.mkalias
@@ -25,9 +27,25 @@
           pkgs.nerd-fonts.jetbrains-mono
           pkgs.google-cloud-sdk
           pkgs.zsh
-          pkgs.oh-my-zsh
           pkgs.pyenv
           pkgs.autojump
+          pkgs.kubectl
+          pkgs.kubernetes-helm
+          pkgs.terraform
+          pkgs.httpie
+          pkgs.zsh-syntax-highlighting
+          pkgs.zsh-history-substring-search
+          pkgs.zsh-autosuggestions
+          pkgs.gh
+          pkgs.zsh-powerlevel10k
+          pkgs.openssl
+          pkgs.zinit
+          pkgs.stow
+          pkgs.zed-editor
+          pkgs.fzf
+          pkgs.zoxide
+          pkgs.kubectx
+          pkgs.zsh-history-substring-search
         ];
       homebrew = {
         enable = true;
@@ -39,10 +57,18 @@
           "hammerspoon"
           "iina"
         ];
+        masApps = {
+          "Slack" = 803453959;
+        };
         onActivation.cleanup = "zap";
         onActivation.autoUpdate = true;
         onActivation.upgrade = true;
       };
+
+      system.defaults = {
+        dock.autohide = true;
+      };
+
       # Necessary for using flakes on this system.
       nix.settings.experimental-features = "nix-command flakes";
 
@@ -65,7 +91,7 @@
   {
     # Build darwin flake using:
     # $ darwin-rebuild build --flake .#dozrMac
-    darwinConfigurations."dozrMac" = nix-darwin.lib.darwinSystem {
+    darwinConfigurations."armMac" = nix-darwin.lib.darwinSystem {
       modules = [
         configuration
         mac-app-util.darwinModules.default
