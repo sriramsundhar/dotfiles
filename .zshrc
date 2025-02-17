@@ -7,10 +7,6 @@ fi
 
 source "$(nix eval nixpkgs#zinit.outPath --raw)/share/zinit/zinit.zsh"
 source "$(nix eval nixpkgs#zsh-history-substring-search.outPath --raw)/share/zsh-history-substring-search/zsh-history-substring-search.zsh"
-# zsh-history-substring-search configuration
-HISTORY_SUBSTRING_SEARCH_ENSURE_UNIQUE=1
-bindkey "$terminfo[kcuu1]" history-substring-search-up
-bindkey "$terminfo[kcud1]" history-substring-search-down
 
 # Add in Powerlevel10k
 zinit ice depth=1; zinit light romkatv/powerlevel10k
