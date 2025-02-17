@@ -42,10 +42,10 @@ Setup up terminal with
     cd ~
     git clone https://github.com/sriramsundhar/dotfiles
     nix run nix-darwin/master --extra-experimental-features "nix-command flakes" -- switch --flake ~/dotfiles/.config/nix/armMac#armMac
+    cd dotfiles
     stow --adopt .
 ```
 
 ### Refrence
 - [nix-darwin](https://www.youtube.com/watch?v=Z8BL8mdzWHI)
-- [GNU stow](https://www.youtube.com/watch?v=Z8BL8mdzWHI)
-- 
+- [GNU stow](https://www.youtube.com/watch?v=Z8BL8mdzWHI) 
