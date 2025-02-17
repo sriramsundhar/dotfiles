@@ -27,10 +27,8 @@
           pkgs.nerd-fonts.jetbrains-mono
           pkgs.google-cloud-sdk
           pkgs.zsh
-          pkgs.oh-my-zsh
           pkgs.pyenv
           pkgs.autojump
-          # pkgs.kubernetes
           pkgs.kubectl
           pkgs.kubernetes-helm
           pkgs.terraform
@@ -44,6 +42,10 @@
           pkgs.zinit
           pkgs.stow
           pkgs.zed-editor
+          pkgs.fzf
+          pkgs.zoxide
+          pkgs.kubectx
+          pkgs.zsh-history-substring-search
         ];
       homebrew = {
         enable = true;
@@ -62,7 +64,6 @@
         onActivation.autoUpdate = true;
         onActivation.upgrade = true;
       };
-
 
       system.defaults = {
         dock.autohide = true;
