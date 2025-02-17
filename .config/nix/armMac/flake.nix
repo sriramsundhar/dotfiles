@@ -17,6 +17,7 @@
       nixpkgs.config.allowUnfree = true;
       environment.systemPackages =
         [
+          pkgs.vim
           pkgs.neovim
           pkgs.tmux
           pkgs.mkalias
@@ -41,10 +42,8 @@
           pkgs.zsh-powerlevel10k
           pkgs.openssl
           pkgs.zinit
-          pkgs.sublime
-          pkgs.sublime-merge
-          pkgs.vscode
-          pkgs.mongodb-compass
+          pkgs.stow
+          pkgs.zed-editor
         ];
       homebrew = {
         enable = true;
@@ -91,7 +90,7 @@
   {
     # Build darwin flake using:
     # $ darwin-rebuild build --flake .#dozrMac
-    darwinConfigurations."dozrMac" = nix-darwin.lib.darwinSystem {
+    darwinConfigurations."armMac" = nix-darwin.lib.darwinSystem {
       modules = [
         configuration
         mac-app-util.darwinModules.default
