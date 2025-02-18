@@ -29,5 +29,17 @@
     "after_delay": {
       "milliseconds": 1000
     }
+  },
+  "autoscroll_on_clicks": true,
+  "format_on_save": "on",
+  "tab_size": 2,
+  "auto_install_extensions": {
+    "html": true,
+    "dockerfile": true,
+    "docker-compose": true,
+    "lua": true,
+    "nix": true,
+    "terraform": true,
+    "toml": true
   }
 }

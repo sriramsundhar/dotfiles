@@ -61,7 +61,6 @@ alias ls='ls --color'
 alias ll='ls -al --color'
 alias vim='nvim'
 alias c='clear'
-alias j='autojump'
 
 # Shell integrations
 eval "$(fzf --zsh)"

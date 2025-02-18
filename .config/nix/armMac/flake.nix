@@ -49,6 +49,7 @@
           pkgs.kitty
           pkgs.wezterm
           pkgs.warp-terminal
+          pkgs.slack
         ];
       homebrew = {
         enable = true;

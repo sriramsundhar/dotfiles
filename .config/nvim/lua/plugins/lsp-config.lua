@@ -23,7 +23,10 @@ return {
       lspconfig.tsserver.setup({
         capabilities = capabilities
       })
-      lspconfig.solargraph.setup({
+      lspconfig.tsp_server.setup({
+        capabilities = capabilities
+      })
+      lspconfig.bashls.setup({
         capabilities = capabilities
       })
       lspconfig.html.setup({
@@ -32,7 +35,9 @@ return {
       lspconfig.lua_ls.setup({
         capabilities = capabilities
       })
-
+      lspconfig.tflint.setup({
+        capabilities = capabilities
+      })
       vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
       vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
       vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, {})
