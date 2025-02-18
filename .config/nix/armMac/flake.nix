@@ -46,6 +46,10 @@
           pkgs.zoxide
           pkgs.kubectx
           pkgs.zsh-history-substring-search
+          # pkgs.ghostty
+          pkgs.kitty
+          pkgs.wezterm
+          pkgs.warp-terminal
         ];
       homebrew = {
         enable = true;
