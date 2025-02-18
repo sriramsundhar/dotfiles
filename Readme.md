@@ -19,7 +19,7 @@ Setup up terminal with
 - Clone the repository at the home directory
   ```sh
     cd ~
-    git clone https://github.com/sriramsundhar/dotfiles
+    git clone https://github.com/dozr/dotfiles
   ```
 - Install packages with nix
   ```sh
@@ -40,7 +40,7 @@ Setup up terminal with
 ```sh
     sh <(curl -L https://nixos.org/nix/install)
     cd ~
-    git clone https://github.com/sriramsundhar/dotfiles
+    git clone https://github.com/dozr/dotfiles
     nix run nix-darwin/master --extra-experimental-features "nix-command flakes" -- switch --flake ~/dotfiles/.config/nix/armMac#armMac
     cd dotfiles
     stow --adopt .
