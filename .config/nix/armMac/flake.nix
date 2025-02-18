@@ -15,6 +15,7 @@
       # List packages installed in system profile. To search by name, run:
       # $ nix-env -qaP | grep wget
       nixpkgs.config.allowUnfree = true;
+      nixpkgs.config.allowUnstable = true;
       environment.systemPackages =
         [
           pkgs.vim
@@ -23,8 +24,6 @@
           pkgs.mkalias
           pkgs.alacritty
           pkgs.git
-          pkgs.meslo-lgs-nf
-          pkgs.nerd-fonts.jetbrains-mono
           pkgs.google-cloud-sdk
           pkgs.zsh
           pkgs.pyenv
@@ -68,10 +67,16 @@
         onActivation.autoUpdate = true;
         onActivation.upgrade = true;
       };
+      fonts.packages = with pkgs; [
+        pkgs.nerd-fonts.jetbrains-mono
+        pkgs.meslo-lg
+        pkgs.meslo-lgs-nf
+      ];
 
       system.defaults = {
         dock.autohide = true;
       };
+
 
       # Necessary for using flakes on this system.
       nix.settings.experimental-features = "nix-command flakes";
