@@ -20,6 +20,8 @@ zinit light Aloxaf/fzf-tab
 # Add in snippets
 zinit snippet OMZL::git.zsh
 zinit snippet OMZP::autojump
+# zinit snippet OMZP::direnv
+
 # zinit snippet OMZP::zsh-history-substring-search
 
 # Load completions
@@ -65,3 +67,4 @@ alias c='clear'
 # Shell integrations
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
+export PATH="$PATH:/Users/sriram/bin"

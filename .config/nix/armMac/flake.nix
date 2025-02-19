@@ -16,53 +16,61 @@
       # $ nix-env -qaP | grep wget
       nixpkgs.config.allowUnfree = true;
       nixpkgs.config.allowUnstable = true;
-      environment.systemPackages =
-        [
-          pkgs.vim
-          pkgs.neovim
-          pkgs.tmux
-          pkgs.mkalias
-          pkgs.alacritty
-          pkgs.git
-          pkgs.google-cloud-sdk
-          pkgs.zsh
-          pkgs.pyenv
-          pkgs.autojump
-          pkgs.kubectl
-          pkgs.kubernetes-helm
-          pkgs.terraform
-          pkgs.httpie
-          pkgs.zsh-syntax-highlighting
-          pkgs.zsh-history-substring-search
-          pkgs.zsh-autosuggestions
-          pkgs.gh
-          pkgs.zsh-powerlevel10k
-          pkgs.openssl
-          pkgs.zinit
-          pkgs.stow
-          pkgs.zed-editor
-          pkgs.fzf
-          pkgs.zoxide
-          pkgs.kubectx
-          pkgs.zsh-history-substring-search
-          # pkgs.ghostty
-          pkgs.kitty
-          pkgs.wezterm
-          pkgs.warp-terminal
-          pkgs.slack
-        ];
+      # nixpkgs.config.allowInsecure = true;
+      environment.systemPackages = [
+        pkgs.vim
+        pkgs.neovim
+        pkgs.tmux
+        pkgs.mkalias
+        pkgs.alacritty
+        pkgs.git
+        (pkgs.google-cloud-sdk.withExtraComponents [
+          pkgs.google-cloud-sdk.components.gke-gcloud-auth-plugin
+        ])
+        pkgs.zsh
+        pkgs.pyenv
+        pkgs.autojump
+        pkgs.kubectl
+        pkgs.kubernetes-helm
+        pkgs.terraform
+        pkgs.httpie
+        pkgs.zsh-syntax-highlighting
+        pkgs.zsh-history-substring-search
+        pkgs.zsh-autosuggestions
+        pkgs.gh
+        pkgs.zsh-powerlevel10k
+        pkgs.openssl
+        pkgs.zinit
+        pkgs.stow
+        pkgs.zed-editor
+        pkgs.fzf
+        pkgs.zoxide
+        pkgs.kubectx
+        pkgs.zsh-history-substring-search
+        # pkgs.ghostty
+        pkgs.kitty
+        pkgs.wezterm
+        pkgs.warp-terminal
+        pkgs.slack
+        pkgs.direnv
+        pkgs.nix-direnv
+        pkgs.jq
+        pkgs.nodejs
+        pkgs.python3
+        pkgs.mas
+        pkgs.slack
+      ];
       homebrew = {
         enable = true;
         brews = [
           "nvm"
-          "mas"
         ];
         casks = [
           "hammerspoon"
           "iina"
         ];
         masApps = {
-          "Slack" = 803453959;
+          # "Slack" = 803453959;
         };
         onActivation.cleanup = "zap";
         onActivation.autoUpdate = true;
@@ -84,6 +92,9 @@
 
       # Enable alternative shell support in nix-darwin.
       # programs.fish.enable = true;
+      programs = {
+        direnv.enable = true;
+      };
 
       # Set Git commit hash for darwin-version.
       system.configurationRevision = self.rev or self.dirtyRev or null;
@@ -100,7 +111,7 @@
   in
   {
     # Build darwin flake using:
-    # $ darwin-rebuild build --flake .#dozrMac
+    # $ darwin-rebuild build --flake .#darmMac
     darwinConfigurations."armMac" = nix-darwin.lib.darwinSystem {
       modules = [
         configuration
