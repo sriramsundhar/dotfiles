@@ -19,7 +19,7 @@ Setup up terminal with
 - Clone the repository at the home directory
   ```sh
     cd ~
-    git clone https://github.com/dozr/dotfiles
+    git clone https://github.com/sriramsundhar/dotfiles
   ```
 - Install packages with nix
   ```sh
@@ -38,12 +38,22 @@ Setup up terminal with
     
 ### All together
 ```sh
-    sh <(curl -L https://nixos.org/nix/install)
-    cd ~
-    git clone https://github.com/dozr/dotfiles
-    nix run nix-darwin/master --extra-experimental-features "nix-command flakes" -- switch --flake ~/dotfiles/.config/nix/armMac#armMac
-    cd dotfiles
-    stow --adopt .
+  sh <(curl -L https://nixos.org/nix/install)
+  cd ~
+  git clone https://github.com/sriramsundhar/dotfiles
+  nix run nix-darwin/master --extra-experimental-features "nix-command flakes" -- switch --flake ~/dotfiles/.config/nix/armMac#armMac
+  cd dotfiles
+  stow --adopt .
+```
+### Git config
+
+- Copy the `.gitconfig.sample` to `.gitconfig`.
+- Change the email 
+- Modify to necessary configs
+
+```sh
+cp .gitconfig.sample .gitconfig
+stow --adot .
 ```
 
 ### Refrence

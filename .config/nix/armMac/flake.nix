@@ -58,7 +58,9 @@
         pkgs.nodejs
         pkgs.python3
         pkgs.mas
-        pkgs.slack
+        pkgs.helix
+        pkgs.helix-gpt
+        pkgs.confluent-cli
       ];
       homebrew = {
         enable = true;
