@@ -59,10 +59,10 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
 # Aliases
-alias ls='ls --color'
-alias ll='ls -al --color'
-alias vim='nvim'
+alias ls='colorls'
+alias ll='colorls -al'
 alias c='clear'
+alias fz=nvim $(fzf -m --preview="bat --color=always {}")
 
 # Shell integrations
 eval "$(fzf --zsh)"

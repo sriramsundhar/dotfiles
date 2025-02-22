@@ -23,7 +23,7 @@ return {
       lspconfig.ts_ls.setup({
         capabilities = capabilities
       })
-      lspconfig.tsp_server.setup({
+     lspconfig.tsp_server.setup({
         capabilities = capabilities
       })
       lspconfig.bashls.setup({

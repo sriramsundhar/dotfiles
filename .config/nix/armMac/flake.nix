@@ -61,6 +61,11 @@
         pkgs.helix
         pkgs.helix-gpt
         pkgs.confluent-cli
+        pkgs.ripgrep
+        pkgs.fd
+        pkgs.bat
+        pkgs.zellij
+        pkgs.colorls
       ];
       homebrew = {
         enable = true;
