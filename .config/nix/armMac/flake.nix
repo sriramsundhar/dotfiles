@@ -51,7 +51,6 @@
         pkgs.kitty
         pkgs.wezterm
         pkgs.warp-terminal
-        pkgs.slack
         pkgs.direnv
         pkgs.nix-direnv
         pkgs.jq
@@ -66,6 +65,8 @@
         pkgs.bat
         pkgs.zellij
         pkgs.colorls
+        pkgs.lazygit
+        pkgs.mongosh
       ];
       homebrew = {
         enable = true;
@@ -77,7 +78,7 @@
           "iina"
         ];
         masApps = {
-          # "Slack" = 803453959;
+          "Slack" = 803453959;
         };
         onActivation.cleanup = "zap";
         onActivation.autoUpdate = true;
