@@ -24,6 +24,7 @@
         pkgs.mkalias
         pkgs.alacritty
         pkgs.git
+        pkgs.docker
         (pkgs.google-cloud-sdk.withExtraComponents [
           pkgs.google-cloud-sdk.components.gke-gcloud-auth-plugin
         ])
@@ -54,7 +55,7 @@
         pkgs.direnv
         pkgs.nix-direnv
         pkgs.jq
-        pkgs.nodejs
+        pkgs.nodejs_22
         pkgs.python3
         pkgs.mas
         pkgs.helix

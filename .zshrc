@@ -6,7 +6,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 source "$(nix eval nixpkgs#zinit.outPath --raw)/share/zinit/zinit.zsh"
-source "$(nix eval nixpkgs#zsh-history-substring-search.outPath --raw)/share/zsh-history-substring-search/zsh-history-substring-search.zsh"
+# source "$(nix eval nixpkgs#zsh-history-substring-search.outPath --raw)/share/zsh-history-substring-search/zsh-history-substring-search.zsh"
 
 # Add in Powerlevel10k
 zinit ice depth=1; zinit light romkatv/powerlevel10k
@@ -20,9 +20,14 @@ zinit light Aloxaf/fzf-tab
 # Add in snippets
 zinit snippet OMZL::git.zsh
 zinit snippet OMZP::autojump
-# zinit snippet OMZP::direnv
-
+zinit snippet OMZP::nvm
+zinit snippet OMZ::plugins/git/git.plugin.zsh
 # zinit snippet OMZP::zsh-history-substring-search
+
+
+zinit load zsh-users/zsh-history-substring-search
+zinit ice wait atload'_history_substring_search_config'
+# zinit snippet OMZP::direnv
 
 # Load completions
 autoload -Uz compinit && compinit
@@ -57,6 +62,7 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
+
 
 # Aliases
 alias ls='colorls'
