@@ -68,6 +68,8 @@
         pkgs.colorls
         pkgs.lazygit
         pkgs.mongosh
+        pkgs.inetutils
+        pkgs.mongodb-tools
       ];
       homebrew = {
         enable = true;
