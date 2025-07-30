@@ -41,5 +41,8 @@
     "nix": true,
     "terraform": true,
     "toml": true
+  },
+  "file_types": {
+    "TOML": ["*conf"]
   }
 }

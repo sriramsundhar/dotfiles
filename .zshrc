@@ -27,7 +27,6 @@ zinit snippet OMZ::plugins/git/git.plugin.zsh
 
 zinit load zsh-users/zsh-history-substring-search
 zinit ice wait atload'_history_substring_search_config'
-# zinit snippet OMZP::direnv
 
 # Load completions
 autoload -Uz compinit && compinit
@@ -69,6 +68,7 @@ alias ls='colorls'
 alias ll='colorls -al'
 alias c='clear'
 alias fz='nvim $(fzf -m --preview="bat --color=always {}")'
+alias k='kubectl'
 
 # Shell integrations
 eval "$(fzf --zsh)"
