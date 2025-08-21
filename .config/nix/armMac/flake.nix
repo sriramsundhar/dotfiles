@@ -70,6 +70,7 @@
         pkgs.mongosh
         pkgs.inetutils
         pkgs.mongodb-tools
+        pkgs.iterm2
       ];
       homebrew = {
         enable = true;
