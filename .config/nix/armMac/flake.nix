@@ -5,12 +5,13 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nix-darwin.url = "github:LnL7/nix-darwin/master";
     mac-app-util.url = "github:hraban/mac-app-util";
-    nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
+    nix-homebrew.url = "github:zhaofengli/nix-homebrew";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = inputs@{ self, nix-darwin, nixpkgs, mac-app-util, nix-homebrew }:
   let
+    currentUser = builtins.trace "Current user: ${builtins.getEnv "USER"}" builtins.getEnv "USER";
     configuration = { pkgs, config,... }: {
       # List packages installed in system profile. To search by name, run:
       # $ nix-env -qaP | grep wget
@@ -71,6 +72,7 @@
         pkgs.inetutils
         pkgs.mongodb-tools
         pkgs.iterm2
+        pkgs.claude-code
       ];
       homebrew = {
         enable = true;
@@ -94,10 +96,12 @@
         pkgs.meslo-lgs-nf
       ];
 
-      system.defaults = {
-        dock.autohide = true;
+      system = {
+          primaryUser = "admin";
+          defaults = {
+            dock.autohide = true;
+          };
       };
-
 
       # Necessary for using flakes on this system.
       nix.settings.experimental-features = "nix-command flakes";
@@ -136,7 +140,7 @@
             # Apple Silicon Only: Also install Homebrew under the default Intel prefix for Rosetta 2
             enableRosetta = true;
             # User owning the Homebrew prefix
-            user = "sriram";
+            user = "admin";
             # Automatically migrate existing Homebrew installations
             autoMigrate = true;
           };
