@@ -73,6 +73,10 @@
         pkgs.mongodb-tools
         pkgs.iterm2
         pkgs.claude-code
+        pkgs.rustc
+        pkgs.code-cursor
+        pkgs.uv
+        pkgs.ollama
       ];
       homebrew = {
         enable = true;
