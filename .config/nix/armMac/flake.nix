@@ -78,8 +78,6 @@
         pkgs.uv
         pkgs.ollama
         pkgs.k9s
-        pkgs.sublime-merge
-        pkgs.sublime4
         # pkgs.crewai
       ];
       homebrew = {
