@@ -77,6 +77,10 @@
         pkgs.code-cursor
         pkgs.uv
         pkgs.ollama
+        pkgs.k9s
+        pkgs.sublime-merge
+        pkgs.sublime4
+        # pkgs.crewai
       ];
       homebrew = {
         enable = true;

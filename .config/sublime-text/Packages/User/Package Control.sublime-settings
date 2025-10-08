@@ -1,0 +1,46 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"3024 Color Scheme",
+		"AngularJS",
+		"Boxy Theme",
+		"Case Conversion",
+		"File Rename",
+		"Git",
+		"GoRename",
+		"Handlebars",
+		"HTML-CSS-JS Prettify",
+		"JsFormat",
+		"JSHint",
+		"JSON Reindent",
+		"Log Highlight",
+		"Node Completions",
+		"Nodejs",
+		"Package Control",
+		"Pretty JSON",
+		"SideBarEnhancements",
+		"SidebarSeparator",
+		"Sublime JS",
+		"sublime-jsdocs",
+		"SublimeGit",
+		"SublimeLinter-hlint",
+		"SublimeLinter-jsdebugmarkers",
+		"Sublimerge 3",
+		"Sublimerge Pro",
+		"SyncedSideBar",
+		"SyncedSidebarBg",
+		"Theme - Brogrammer",
+		"Theme - Soda"
+	],
+	"repositories":
+	[
+		"https://github.com/titoBouzout/SideBarEnhancements/tree/st3",
+		"https://github.com/SublimeGit/SublimeGit",
+		"https://github.com/dzhibas/SublimePrettyJson",
+		"https://github.com/spadgos/sublime-jsdocs.git"
+	]
+}
