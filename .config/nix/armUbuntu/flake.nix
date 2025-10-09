@@ -43,7 +43,7 @@
       "mas"
       "helix"
       "helix-gpt"
-      "confluent-cli"
+      # "confluent-cli"
       "ripgrep"
       "fd"
       "bat"
