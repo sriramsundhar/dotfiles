@@ -101,17 +101,20 @@
       forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
 
       # Function to define the package list for a specific system.
+      # This function now returns an attribute set, not a list.
       mkPackages = system:
         let pkgs = nixpkgs.legacyPackages.${system}; in
-        with pkgs; [
-          # Add packages for the profile
-          zsh
-          oh-my-zsh
-          git
-          wget
-          nodejs_22
-          python311
-        ];
+        with pkgs; {
+          zsh = zsh;
+          oh-my-zsh = oh-my-zsh;
+          git = git;
+          wget = wget;
+          nodejs_22 = nodejs_22;
+          python311 = python311;
+
+          # Define a default attribute to easily install all packages.
+          default = self.packages.${system}.zsh;
+        };
 
     in {
       # The packages output for each system.
