@@ -7,7 +7,9 @@
   let
     systems = [ "x86_64-linux" "aarch64-linux" ];
     pkgsFor = system: import nixpkgs { inherit system; };
-    packageNames = [ "zsh" "oh-my-zsh" "git" "wget" "nodejs_22" "python311" ];
+    packageNames = [
+      "zsh" "oh-my-zsh" "git" "wget" "nodejs_22" "python311"
+    ];
   in {
     packages = nixpkgs.lib.genAttrs systems (system:
       let
@@ -27,5 +29,5 @@
       in
         selected // { inherit default; }
     );
-  }
+  };
 }
