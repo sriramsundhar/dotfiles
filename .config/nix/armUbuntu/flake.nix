@@ -12,7 +12,6 @@
         "aarch64-linux"
         "x86_64-linux"
       ];
-
       # A helper function that takes a function 'f' and a list of 'systems',
       # then applies 'f' to each system to create an attribute set.
       forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
@@ -23,58 +22,58 @@
         with pkgs; [
           # Add packages for the profile
           vim
-          neovim
-          tmux
-          mkalias
-          git
-          docker
-          (google-cloud-sdk.withExtraComponents [
-            google-cloud-sdk.components.gke-gcloud-auth-plugin
-          ])
-          zsh
-          pyenv
-          autojump
-          kubectl
-          kubernetes-helm
-          terraform
-          httpie
-          zsh-syntax-highlighting
-          zsh-history-substring-search
-          zsh-autosuggestions
-          gh
-          zsh-powerlevel10k
-          openssl
-          zinit
-          stow
-          zed-editor
-          fzf
-          zoxide
-          kubectx
-          zsh-history-substring-search
-          direnv
-          nix-direnv
-          jq
-          nodejs_22
-          python3
-          mas
-          helix
-          helix-gpt
-          confluent-cli
-          ripgrep
-          fd
-          bat
-          zellij
-          colorls
-          lazygit
-          mongosh
-          inetutils
-          mongodb-tools
-          claude-code
-          rustc
-          code-cursor
-          uv
-          ollama
-          k9s
+          # neovim
+          # tmux
+          # mkalias
+          # git
+          # docker
+          # (google-cloud-sdk.withExtraComponents [
+          #   google-cloud-sdk.components.gke-gcloud-auth-plugin
+          # ])
+          # zsh
+          # pyenv
+          # autojump
+          # kubectl
+          # kubernetes-helm
+          # terraform
+          # httpie
+          # zsh-syntax-highlighting
+          # zsh-history-substring-search
+          # zsh-autosuggestions
+          # gh
+          # zsh-powerlevel10k
+          # openssl
+          # zinit
+          # stow
+          # zed-editor
+          # fzf
+          # zoxide
+          # kubectx
+          # zsh-history-substring-search
+          # direnv
+          # nix-direnv
+          # jq
+          # nodejs_22
+          # python3
+          # mas
+          # helix
+          # helix-gpt
+          # confluent-cli
+          # ripgrep
+          # fd
+          # bat
+          # zellij
+          # colorls
+          # lazygit
+          # mongosh
+          # inetutils
+          # mongodb-tools
+          # claude-code
+          # rustc
+          # code-cursor
+          # uv
+          # ollama
+          # k9s
         ];
 
     in {
