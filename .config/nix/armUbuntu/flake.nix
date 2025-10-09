@@ -90,34 +90,35 @@
 
   outputs = { self, nixpkgs }:
     let
-      # Define the systems your flake should support.
       supportedSystems = [
         "aarch64-linux"
         "x86_64-linux"
       ];
-
-      # A helper function that takes a function 'f' and a list of 'systems',
-      # then applies 'f' to each system to create an attribute set.
       forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
 
-      # Function to define the package list for a specific system.
-      # This function now returns an attribute set, not a list.
       mkPackages = system:
-        let pkgs = nixpkgs.legacyPackages.${system}; in
-        with pkgs; {
-          zsh = zsh;
-          oh-my-zsh = oh-my-zsh;
-          git = git;
-          wget = wget;
-          nodejs_22 = nodejs_22;
-          python311 = python311;
+        let
+          pkgs = nixpkgs.legacyPackages.${system};
+          # Define the list of packages once for easy management.
+          packagesToInherit = with pkgs; [
+            zsh
+            oh-my-zsh
+            git
+            wget
+            nodejs_22
+            python311
+          ];
+        in
+        {
+          # Inherit all packages from the list above.
+          inherit (pkgs) ${nixpkgs.lib.concatStringsSep " " packagesToInherit};
 
           # Define a default attribute to easily install all packages.
-          default = self.packages.${system}.zsh;
+          # This still requires an explicit definition.
+          default = packagesToInherit;
         };
 
     in {
-      # The packages output for each system.
       packages = forAllSystems mkPackages;
     };
 }
