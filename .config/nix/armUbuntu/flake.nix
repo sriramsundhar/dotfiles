@@ -17,7 +17,7 @@
       "vim"
       "neovim"
       "tmux"
-      "mkalias"
+      # "mkalias"
       "git"
       "docker"
       # "(google-cloud-sdk.withExtraComponents [google-cloud-sdk.components.gke-gcloud-auth-plugin])"
