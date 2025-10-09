@@ -78,6 +78,7 @@
         pkgs.uv
         pkgs.ollama
         pkgs.k9s
+        pkgs.ghostty-bin
         # pkgs.crewai
       ];
       homebrew = {
@@ -133,7 +134,7 @@
   in
   {
     # Build darwin flake using:
-    # $ darwin-rebuild build --flake .#darmMac
+    # $ darwin-rebuild build --flake .#armMac
     darwinConfigurations."armMac" = nix-darwin.lib.darwinSystem {
       modules = [
         configuration
