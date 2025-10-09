@@ -53,7 +53,7 @@
       "mongosh"
       "inetutils"
       "mongodb-tools"
-      "claude-code"
+      # "claude-code"
       "rustc"
       "code-cursor"
       "uv"
