@@ -55,7 +55,7 @@
       "mongodb-tools"
       # "claude-code"
       "rustc"
-      "code-cursor"
+      # "code-cursor"
       "uv"
       "ollama"
       "k9s"
