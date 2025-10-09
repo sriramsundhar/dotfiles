@@ -6,13 +6,13 @@
   outputs = { nixpkgs, ... }:
   let
     systems = [ "x86_64-linux" "aarch64-linux" ];
-    pkgsFor = system: import nixpkgs { inherit system; };
+    # pkgsFor = system: import nixpkgs { inherit system; };
     pkgsFor = system: import nixpkgs {
       inherit system;
       config.allowUnfree = true;
       config.allowUnstable = true;
     };
-    
+
     packageNames = [
       "vim"
       "neovim"
