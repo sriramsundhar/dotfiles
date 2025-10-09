@@ -64,6 +64,8 @@
     packages = nixpkgs.lib.genAttrs systems (system:
       let
         pkgs = pkgsFor system;
+        nixpkgs.config.allowUnfree = true;
+        nixpkgs.config.allowUnstable = true;
 
         # dynamically build { zsh = pkgs.zsh; git = pkgs.git; ... }
         selected = builtins.listToAttrs (map (name: {
