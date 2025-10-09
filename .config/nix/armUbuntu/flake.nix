@@ -7,6 +7,12 @@
   let
     systems = [ "x86_64-linux" "aarch64-linux" ];
     pkgsFor = system: import nixpkgs { inherit system; };
+    pkgsFor = system: import nixpkgs {
+      inherit system;
+      config.allowUnfree = true;
+      config.allowUnstable = true;
+    };
+    
     packageNames = [
       "vim"
       "neovim"
@@ -40,7 +46,6 @@
       "jq"
       "nodejs_22"
       "python3"
-      "mas"
       "helix"
       "helix-gpt"
       # "confluent-cli"
@@ -64,8 +69,6 @@
     packages = nixpkgs.lib.genAttrs systems (system:
       let
         pkgs = pkgsFor system;
-        nixpkgs.config.allowUnfree = true;
-        nixpkgs.config.allowUnstable = true;
 
         # dynamically build { zsh = pkgs.zsh; git = pkgs.git; ... }
         selected = builtins.listToAttrs (map (name: {
