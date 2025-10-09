@@ -96,26 +96,28 @@
       ];
       forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
 
+      packageNames = [
+        "zsh"
+        "oh-my-zsh"
+        "git"
+        "wget"
+        "nodejs_22"
+        "python311"
+      ];
+
       mkPackages = system:
         let
           pkgs = nixpkgs.legacyPackages.${system};
-          # Define the list of packages once for easy management.
-          packagesToInherit = with pkgs; [
-            zsh
-            oh-my-zsh
-            git
-            wget
-            nodejs_22
-            python311
-          ];
+          # Create a proper attribute set from the list of package names.
+          pkgSet = builtins.listToAttrs (
+            map (name: {
+              name = name;
+              value = pkgs.${name};
+            }) packageNames
+          );
         in
-        {
-          # Inherit all packages from the list above.
-          inherit (pkgs) ${nixpkgs.lib.concatStringsSep " " packagesToInherit};
-
-          # Define a default attribute to easily install all packages.
-          # This still requires an explicit definition.
-          default = packagesToInherit;
+        pkgSet // {
+          default = builtins.attrValues pkgSet;
         };
 
     in {
