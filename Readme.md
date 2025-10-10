@@ -24,9 +24,13 @@ Setup up terminal with
     cd ~
     git clone https://github.com/sriramsundhar/dotfiles
   ```
-- Install packages with nix
+- Install packages with nix in mac
   ```sh
     nix run nix-darwin/master --extra-experimental-features "nix-command flakes" -- switch --flake ~/dotfiles/.config/nix/armMac#armMac
+  ```
+- Install packages with nix in ubuntu
+  ```sh
+    nix profile install .# --extra-experimental-features "nix-command flakes"
   ```
 - Setup the terminal with stow
 

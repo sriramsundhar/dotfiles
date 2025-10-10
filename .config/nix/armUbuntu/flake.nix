@@ -19,14 +19,14 @@
       "tmux"
       # "mkalias"
       "git"
-      "docker"
+      # "docker"
       # "(google-cloud-sdk.withExtraComponents [google-cloud-sdk.components.gke-gcloud-auth-plugin])"
       "zsh"
       "pyenv"
       "autojump"
       "kubectl"
       "kubernetes-helm"
-      "terraform"
+      # "terraform"
       "httpie"
       "zsh-syntax-highlighting"
       "zsh-history-substring-search"
@@ -36,7 +36,7 @@
       "openssl"
       "zinit"
       "stow"
-      "zed-editor"
+      # "zed-editor"
       "fzf"
       "zoxide"
       "kubectx"
@@ -44,10 +44,10 @@
       "direnv"
       "nix-direnv"
       "jq"
-      "nodejs_22"
-      "python3"
-      "helix"
-      "helix-gpt"
+      # "nodejs_22"
+      # "python3"
+      # "helix"
+      # "helix-gpt"
       # "confluent-cli"
       "ripgrep"
       "fd"
@@ -65,6 +65,11 @@
       "ollama"
       "k9s"
     ];
+    fontNames = [
+      "nerd-fonts.jetbrains-mono"
+      "meslo-lg"
+      "meslo-lgs-nf"
+    ];
   in {
     packages = nixpkgs.lib.genAttrs systems (system:
       let
@@ -75,6 +80,11 @@
           inherit name;
           value = pkgs.${name};
         }) packageNames);
+
+        fonts = builtins.listToAttrs (map (name: {
+          inherit name;
+          value = pkgs.${name};
+        }) fontNames);
 
         # aggregate env
         default = pkgs.buildEnv {
