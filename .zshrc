@@ -22,12 +22,9 @@ zinit snippet OMZL::git.zsh
 zinit snippet OMZP::autojump
 zinit snippet OMZP::nvm
 zinit snippet OMZ::plugins/git/git.plugin.zsh
-# zinit snippet OMZP::zsh-history-substring-search
-
 
 zinit load zsh-users/zsh-history-substring-search
 zinit ice wait atload'_history_substring_search_config'
-# zinit snippet OMZP::direnv
 
 # Load completions
 autoload -Uz compinit && compinit
@@ -75,4 +72,5 @@ alias fz='nvim $(fzf -m --preview="bat --color=always {}")'
 # Shell integrations
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
-export PATH="$PATH:/Users/sriram/bin"
+export PATH="$PATH:$HOME/bin:$HOME/.tmux/plugins/tmuxifier/bin"
+eval "$(tmuxifier init -)"
