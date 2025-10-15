@@ -1,6 +1,5 @@
 {
   description = "Example nix-darwin system flake";
-
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nix-darwin.url = "github:LnL7/nix-darwin/master";
@@ -157,6 +156,27 @@
             autoMigrate = true;
           };
         }
+      ];
+    };
+    # x86_64 (Intel) configuration
+    darwinConfigurations."intelMac" = nix-darwin.lib.darwinSystem {
+      modules = [
+        configuration
+        mac-app-util.darwinModules.default
+        nix-homebrew.darwinModules.nix-homebrew
+        {
+          nix-homebrew = {
+            enable = true;
+            # Intel machine doesn't need Rosetta installation
+            enableRosetta = false;
+            user = "admin";
+            autoMigrate = true;
+          };
+        }
+        # Override host platform for the x86_64 build
+        ({ pkgs, ... }: {
+          nixpkgs.hostPlatform = "x86_64-darwin";
+        })
       ];
     };
   };
