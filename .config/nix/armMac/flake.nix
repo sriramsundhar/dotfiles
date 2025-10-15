@@ -80,6 +80,11 @@
         pkgs.k9s
         pkgs.ghostty-bin
         # pkgs.crewai
+        pkgs.go
+        pkgs.wget
+        pkgs.jdk11
+        pkgs.luajitPackages.luarocks_bootstrap
+        pkgs.lazydocker
       ];
       homebrew = {
         enable = true;

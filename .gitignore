@@ -1,5 +1,5 @@
 .DS_Store
 .gitconfig
-plugins/
+.tmux/plugins/
 prompts/
 .git/
