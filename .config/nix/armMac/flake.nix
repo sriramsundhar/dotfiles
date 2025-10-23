@@ -84,6 +84,7 @@
         pkgs.jdk11
         pkgs.luajitPackages.luarocks_bootstrap
         pkgs.lazydocker
+        pkgs.bun
       ];
       homebrew = {
         enable = true;

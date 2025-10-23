@@ -15,7 +15,8 @@ return {
           hide_gitignored = true,
 			  },
         follow_current_file = {
-          enable = true,
+          enable = false,
+          leave_dirs_open = false,
         },
       },
       buffers = {
@@ -26,7 +27,7 @@ return {
         },
       },
     })
-    -- vim.keymap.set("n", "<C-n>", ":Neotree filesystem reveal left<CR>", {})
+    vim.keymap.set("n", "<C-r>", ":Neotree filesystem reveal left<CR>", {})
     vim.keymap.set("n", "<C-n>", ":Neotree toggle<CR>", {})
     vim.keymap.set("n", "<leader>bf", ":Neotree buffers reveal float<CR>", {})
   end,
