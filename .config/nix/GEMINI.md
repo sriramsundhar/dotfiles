@@ -19,7 +19,7 @@ The primary purpose of this directory is to provide a consistent development env
 
 ### Universal macOS
 
-To build and apply the `universalMac` configuration on a Darwin system, you would run:
+To build and apply the `universal` configuration on a Darwin system, you would run:
 
 For ARM systems:
 

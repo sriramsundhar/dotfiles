@@ -1,8 +1,6 @@
-# Universal macOS Nix Flake
+# Universal Nix Flake
 
-[![Nix Flake](https://img.shields.io/badge/Nix%20Flake-blue?style=for-the-badge&logo=NixOS)](https://nixos.org/flakes/)
-
-A universal Nix flake for macOS that provides a consistent development environment on both Intel and ARM architectures.
+A universal Nix flake for macOS and Linux that provides a consistent development environment on both Intel and ARM architectures.
 
 ## Overview
 
@@ -33,7 +31,7 @@ Before you can use this flake, you need to have the following installed on your 
 
 ### Installation from Scratch
 
-To install this configuration on a new machine, run one of the following commands from the `universalMac` directory:
+To install this configuration on a new machine, run one of the following commands from the `universal` directory:
 
 **For ARM Macs:**
 
@@ -50,6 +48,30 @@ darwin-rebuild switch --flake .#universal-intel
 This will build and activate the configuration, installing all the packages and setting up the system according to the flake.
 
 ## Usage
+
+### For macOS Users
+
+**For ARM Macs:**
+
+```sh
+darwin-rebuild switch --flake .#universal-arm
+```
+
+**For Intel Macs:**
+
+```sh
+darwin-rebuild switch --flake .#universal-intel
+```
+
+### For Linux Users
+
+To install the packages on a Linux system, you can use the `nix profile install` command:
+
+```sh
+nix profile install .#
+```
+
+This will install the packages defined in `packages.nix` into your user profile.
 
 ### Updating Existing Packages
 
@@ -112,3 +134,49 @@ Contributions are welcome! If you have any suggestions or improvements, please f
 ## License
 
 This project is licensed under the MIT License.
+
+---
+
+## Uninstallation
+
+**WARNING:** The following steps will completely remove Nix from your system. This is a destructive and irreversible process. Please make sure you have backed up any important data before proceeding.
+
+To completely remove Nix from your system, you can follow these steps:
+
+1.  **Remove the Nix store:**
+
+    ```sh
+    sudo rm -rf /nix
+    ```
+
+2.  **Remove Nix configuration files:**
+
+    ```sh
+    rm -rf ~/.nix-profile ~/.nix-defexpr ~/.nix-channels
+    sudo rm -rf /etc/nix
+    ```
+
+3.  **Remove the Nix daemon and services:**
+
+    ```sh
+    sudo launchctl unload /Library/LaunchDaemons/org.nixos.nix-daemon.plist
+    sudo rm /Library/LaunchDaemons/org.nixos.nix-daemon.plist
+    sudo launchctl unload /Library/LaunchDaemons/org.nixos.darwin-store.plist
+    sudo rm /Library/LaunchDaemons/org.nixos.darwin-store.plist
+    ```
+
+4.  **Clean up your shell profile:**
+
+    Open your shell profile file (e.g., `~/.zshrc`, `~/.bash_profile`, or `~/.profile`) and remove any lines that source Nix-related files. These lines typically look like this:
+
+    ```sh
+    if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
+      . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
+    fi
+    ```
+
+5.  **Remove the `nix-darwin` entry from `/etc/synthetic.conf`:**
+
+    If you have an entry for `nix` in `/etc/synthetic.conf`, you should remove it.
+
+After completing these steps, Nix should be completely removed from your system. You may need to restart your shell or your computer for all changes to take effect.

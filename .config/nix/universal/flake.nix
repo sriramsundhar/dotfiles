@@ -40,8 +40,24 @@
       # $ darwin-rebuild changelog
       system.stateVersion = 6;
     };
-      in
-      {
-        darwinConfigurations."universal-arm" = import ./arm.nix { inherit nix-darwin nixpkgs mac-app-util nix-homebrew configuration currentUser; };
-        darwinConfigurations."universal-intel" = import ./intel.nix { inherit nix-darwin nixpkgs mac-app-util nix-homebrew configuration currentUser; };
-      };}
+      linuxSystems = [ "aarch64-linux" "x86_64-linux" ];
+      pkgsFor = system: import nixpkgs {
+        inherit system;
+        config.allowUnfree = true;
+        config.allowUnstable = true;
+      };
+    in
+    {
+      darwinConfigurations."universal-arm" = import ./arm.nix { inherit nix-darwin nixpkgs mac-app-util nix-homebrew configuration currentUser; };
+      darwinConfigurations."universal-intel" = import ./intel.nix { inherit nix-darwin nixpkgs mac-app-util nix-homebrew configuration currentUser; };
+      packages = nixpkgs.lib.genAttrs linuxSystems (system:
+        let
+          pkgs = pkgsFor system;
+        in
+        {
+          default = pkgs.buildEnv {
+            name = "user-packages";
+            paths = packages { inherit pkgs; };
+          };
+        });
+    };}
