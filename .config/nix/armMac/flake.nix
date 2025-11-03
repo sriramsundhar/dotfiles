@@ -87,6 +87,7 @@
           pkgs.bun
           pkgs.github-copilot-cli
           pkgs.gemini-cli
+          pkgs.lens
         ];
       homebrew = {
         enable = true;
