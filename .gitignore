@@ -1,2 +1,5 @@
 .DS_Store
 .gitconfig
+.tmux/plugins/
+prompts/
+.git/

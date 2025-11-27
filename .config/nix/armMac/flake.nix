@@ -1,6 +1,5 @@
 {
   description = "Example nix-darwin system flake";
-
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nix-darwin.url = "github:LnL7/nix-darwin/master";
@@ -10,76 +9,86 @@
   };
 
   outputs = inputs@{ self, nix-darwin, nixpkgs, mac-app-util, nix-homebrew }:
-  let
-    currentUser = builtins.trace "Current user: ${builtins.getEnv "USER"}" builtins.getEnv "USER";
-    configuration = { pkgs, config,... }: {
-      # List packages installed in system profile. To search by name, run:
-      # $ nix-env -qaP | grep wget
-      nixpkgs.config.allowUnfree = true;
-      nixpkgs.config.allowUnstable = true;
-      # nixpkgs.config.allowInsecure = true;
-      environment.systemPackages = [
-        pkgs.vim
-        pkgs.neovim
-        pkgs.tmux
-        pkgs.mkalias
-        pkgs.alacritty
-        pkgs.git
-        pkgs.docker
-        (pkgs.google-cloud-sdk.withExtraComponents [
-          pkgs.google-cloud-sdk.components.gke-gcloud-auth-plugin
-        ])
-        pkgs.zsh
-        pkgs.pyenv
-        pkgs.autojump
-        pkgs.kubectl
-        pkgs.kubernetes-helm
-        pkgs.terraform
-        pkgs.httpie
-        pkgs.zsh-syntax-highlighting
-        pkgs.zsh-history-substring-search
-        pkgs.zsh-autosuggestions
-        pkgs.gh
-        pkgs.zsh-powerlevel10k
-        pkgs.openssl
-        pkgs.zinit
-        pkgs.stow
-        pkgs.zed-editor
-        pkgs.fzf
-        pkgs.zoxide
-        pkgs.kubectx
-        pkgs.zsh-history-substring-search
-        # pkgs.ghostty
-        pkgs.kitty
-        pkgs.wezterm
-        pkgs.warp-terminal
-        pkgs.direnv
-        pkgs.nix-direnv
-        pkgs.jq
-        pkgs.nodejs_22
-        pkgs.python3
-        pkgs.mas
-        pkgs.helix
-        pkgs.helix-gpt
-        pkgs.confluent-cli
-        pkgs.ripgrep
-        pkgs.fd
-        pkgs.bat
-        pkgs.zellij
-        pkgs.colorls
-        pkgs.lazygit
-        pkgs.mongosh
-        pkgs.inetutils
-        pkgs.mongodb-tools
-        pkgs.iterm2
-        pkgs.claude-code
-        pkgs.rustc
-        pkgs.code-cursor
-        pkgs.uv
-        pkgs.ollama
-        pkgs.k9s
-        # pkgs.crewai
-      ];
+    let
+      currentUser = builtins.trace "Current user: ${builtins.getEnv "USER"}" builtins.getEnv "USER";
+      configuration = { pkgs, config,... }: {
+        # List packages installed in system profile. To search by name, run:
+        # $ nix-env -qaP | grep wget
+        nixpkgs.config.allowUnfree = true;
+        nixpkgs.config.allowUnstable = true;
+        # nixpkgs.config.allowInsecure = true;
+        environment.systemPackages = [
+          pkgs.vim
+          pkgs.neovim
+          pkgs.tmux
+          pkgs.mkalias
+          pkgs.alacritty
+          pkgs.git
+          pkgs.docker
+          (pkgs.google-cloud-sdk.withExtraComponents [
+            pkgs.google-cloud-sdk.components.gke-gcloud-auth-plugin
+          ])
+          pkgs.zsh
+          pkgs.pyenv
+          pkgs.autojump
+          pkgs.kubectl
+          pkgs.kubernetes-helm
+          pkgs.terraform
+          pkgs.httpie
+          pkgs.zsh-syntax-highlighting
+          pkgs.zsh-history-substring-search
+          pkgs.zsh-autosuggestions
+          pkgs.gh
+          pkgs.zsh-powerlevel10k
+          pkgs.openssl
+          pkgs.zinit
+          pkgs.stow
+          pkgs.zed-editor
+          pkgs.fzf
+          pkgs.zoxide
+          pkgs.kubectx
+          pkgs.zsh-history-substring-search
+          # pkgs.ghostty
+          pkgs.kitty
+          pkgs.wezterm
+          pkgs.warp-terminal
+          pkgs.direnv
+          pkgs.nix-direnv
+          pkgs.jq
+          pkgs.nodejs_22
+          pkgs.python3
+          pkgs.mas
+          pkgs.helix
+          pkgs.helix-gpt
+          pkgs.confluent-cli
+          pkgs.ripgrep
+          pkgs.fd
+          pkgs.bat
+          pkgs.zellij
+          pkgs.colorls
+          pkgs.lazygit
+          pkgs.mongosh
+          pkgs.inetutils
+          pkgs.mongodb-tools
+          pkgs.iterm2
+          pkgs.claude-code
+          pkgs.rustc
+          pkgs.code-cursor
+          pkgs.uv
+          pkgs.ollama
+          pkgs.k9s
+          pkgs.ghostty-bin
+          # pkgs.crewai
+          pkgs.go
+          pkgs.wget
+          pkgs.jdk11
+          pkgs.luajitPackages.luarocks_bootstrap
+          pkgs.lazydocker
+          pkgs.bun
+          pkgs.github-copilot-cli
+          pkgs.gemini-cli
+          pkgs.lens
+        ];
       homebrew = {
         enable = true;
         brews = [
@@ -133,7 +142,7 @@
   in
   {
     # Build darwin flake using:
-    # $ darwin-rebuild build --flake .#darmMac
+    # $ darwin-rebuild build --flake .#armMac
     darwinConfigurations."armMac" = nix-darwin.lib.darwinSystem {
       modules = [
         configuration
@@ -151,6 +160,27 @@
             autoMigrate = true;
           };
         }
+      ];
+    };
+    # x86_64 (Intel) configuration
+    darwinConfigurations."intelMac" = nix-darwin.lib.darwinSystem {
+      modules = [
+        configuration
+        mac-app-util.darwinModules.default
+        nix-homebrew.darwinModules.nix-homebrew
+        {
+          nix-homebrew = {
+            enable = true;
+            # Intel machine doesn't need Rosetta installation
+            enableRosetta = false;
+            user = "admin";
+            autoMigrate = true;
+          };
+        }
+        # Override host platform for the x86_64 build
+        ({ pkgs, ... }: {
+          nixpkgs.hostPlatform = "x86_64-darwin";
+        })
       ];
     };
   };
