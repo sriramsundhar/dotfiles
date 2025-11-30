@@ -10,7 +10,8 @@
 
   outputs = inputs@{ self, nix-darwin, nixpkgs, mac-app-util, nix-homebrew }:
     let
-      currentUser = builtins.getEnv "USER";
+      #currentUser = builtins.baseNameOf(builtins.getEnv("HOME"));
+      currentUser = "admin";
       packages = import ./packages.nix;
       homebrew = import ./homebrew.nix;
       fonts = import ./fonts.nix;
@@ -24,22 +25,28 @@
         homebrew = homebrew;
         fonts.packages = fonts { inherit pkgs; };
 
-      # Necessary for using flakes on this system.
-      nix.settings.experimental-features = "nix-command flakes";
+        # Necessary for using flakes on this system.
+        nix.settings.experimental-features = "nix-command flakes";
 
-      # Enable alternative shell support in nix-darwin.
-      # programs.fish.enable = true;
-      programs = {
-        direnv.enable = true;
+        # Enable alternative shell support in nix-darwin.
+        # programs.fish.enable = true;
+        programs = {
+          direnv.enable = true;
+        };
+
+        # Set Git commit hash for darwin-version.
+        system.configurationRevision = self.rev or self.dirtyRev or null;
+
+        # Used for backwards compatibility, please read the changelog before changing.
+        # $ darwin-rebuild changelog
+        system.stateVersion = 6;
+        system = {
+          primaryUser = currentUser;
+          defaults = {
+            dock.autohide = true;
+          };
+        };
       };
-
-      # Set Git commit hash for darwin-version.
-      system.configurationRevision = self.rev or self.dirtyRev or null;
-
-      # Used for backwards compatibility, please read the changelog before changing.
-      # $ darwin-rebuild changelog
-      system.stateVersion = 6;
-    };
       linuxSystems = [ "aarch64-linux" "x86_64-linux" ];
       pkgsFor = system: import nixpkgs {
         inherit system;
@@ -47,14 +54,17 @@
         config.allowUnstable = true;
       };
     in
-    {
+      {
       darwinConfigurations."universal-arm" = import ./arm.nix { inherit nix-darwin nixpkgs mac-app-util nix-homebrew configuration currentUser; };
       darwinConfigurations."universal-intel" = import ./intel.nix { inherit nix-darwin nixpkgs mac-app-util nix-homebrew configuration currentUser; };
+      
       packages = nixpkgs.lib.genAttrs linuxSystems (system:
+
         let
           pkgs = pkgsFor system;
         in
-        {
+          {
+
           default = pkgs.buildEnv {
             name = "user-packages";
             paths = packages { inherit pkgs; };
