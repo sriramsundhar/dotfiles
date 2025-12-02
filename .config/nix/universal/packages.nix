@@ -56,7 +56,7 @@
   pkgs.rustc
   pkgs.code-cursor
   pkgs.uv
-  pkgs.ollama
+  #pkgs.ollama
   pkgs.k9s
   pkgs.ghostty-bin
   # pkgs.crewai
