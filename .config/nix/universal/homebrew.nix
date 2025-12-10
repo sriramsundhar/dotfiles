@@ -7,6 +7,7 @@
   casks = [
     "hammerspoon"
     "iina"
+    "warp"
   ];
   masApps = {
     #"Slack" = 803453959;

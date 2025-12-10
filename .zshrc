@@ -74,3 +74,6 @@ eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 export PATH="$PATH:$HOME/bin:$HOME/.tmux/plugins/tmuxifier/bin"
 eval "$(tmuxifier init -)"
+
+# Added by Antigravity
+export PATH="/Users/admin/.antigravity/antigravity/bin:$PATH"

@@ -24,15 +24,12 @@
   pkgs.openssl
   pkgs.zinit
   pkgs.stow
-  pkgs.zed-editor
   pkgs.fzf
   pkgs.zoxide
   pkgs.kubectx
   pkgs.zsh-history-substring-search
-  # pkgs.ghostty
   pkgs.kitty
   pkgs.wezterm
-  pkgs.warp-terminal
   pkgs.direnv
   pkgs.nix-direnv
   pkgs.jq
@@ -54,7 +51,6 @@
   pkgs.iterm2
   pkgs.claude-code
   pkgs.rustc
-  pkgs.code-cursor
   pkgs.uv
   pkgs.ollama
   pkgs.k9s
