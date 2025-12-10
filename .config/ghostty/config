@@ -2,5 +2,5 @@ background-opacity=.6
 cursor-style=bar
 font-size=16
 quick-terminal-size=100%,100%
-keybind = global:ctrl+space=toggle_quick_terminal
+#keybind = global:ctrl+space=toggle_quick_terminal
 keybind = global:ctrl+g=toggle_visibility

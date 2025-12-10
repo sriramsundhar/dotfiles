@@ -22,6 +22,7 @@
 		"Nodejs",
 		"Package Control",
 		"Pretty JSON",
+		"rainbow_csv",
 		"SideBarEnhancements",
 		"SidebarSeparator",
 		"Sublime JS",
@@ -34,7 +35,7 @@
 		"SyncedSideBar",
 		"SyncedSidebarBg",
 		"Theme - Brogrammer",
-		"Theme - Soda"
+		"Theme - Soda",
 	],
 	"repositories":
 	[
