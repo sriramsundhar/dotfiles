@@ -6,7 +6,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 source "$(nix eval nixpkgs#zinit.outPath --raw)/share/zinit/zinit.zsh"
-# source "$(nix eval nixpkgs#zsh-history-substring-search.outPath --raw)/share/zsh-history-substring-search/zsh-history-substring-search.zsh"
+source "$(nix eval nixpkgs#zsh-history-substring-search.outPath --raw)/share/zsh-history-substring-search/zsh-history-substring-search.zsh"
 
 # Add in Powerlevel10k
 zinit ice depth=1; zinit light romkatv/powerlevel10k

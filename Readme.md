@@ -15,7 +15,9 @@ Setup up terminal with
 
 ## Setup
 
-- Install [nix](https://nixos.org/)
+
+
+- Initial Install [nix](https://nixos.org/)
   ```sh
     sh <(curl -L https://nixos.org/nix/install)
   ```
@@ -23,16 +25,36 @@ Setup up terminal with
   ```sh
     cd ~
     git clone https://github.com/sriramsundhar/dotfiles
+    cd ~/dotfile/.config/nix/universal
   ```
-- Install packages with nix in mac
+- Once cloned remember for update your user name [here](./.config/nix/universal/flake.nix#L14).
+- Install packages with nix in mac-arm.
   ```sh
-    nix run nix-darwin/master --extra-experimental-features "nix-command flakes" -- switch --flake ~/dotfiles/.config/nix/armMac#armMac
+  sudo nix run nix-darwin/master --extra-experimental-features "nix-command flakes" -- switch --flake .#arm-mac
   ```
-- Install packages with nix in ubuntu
+- Install packages with nix in mac-intel
   ```sh
-    nix profile install .# --extra-experimental-features "nix-command flakes"
+  sudo nix run nix-darwin/master --extra-experimental-features "nix-command flakes" -- switch --flake .#arm-mac
   ```
-- Setup the terminal with stow
+- Install packages with nix in linux or windows WS
+  ```sh
+  sudo nix profile install .# --extra-experimental-features "nix-command flakes"
+  ```
+
+## Update packages
+
+
+- To update packages
+  ```sh
+  nix flake update
+  ```
+- Use the same command as above for compleating the installation our.
+- Once darwin is installed we can use a simpler command as well.
+  ```sh
+  sudo darwin-rebuild switch --flake .#mar-arm
+  ``` 
+
+# Setup the terminal with stow
 
   ```sh
     cd ~/dotfiles
@@ -45,33 +67,8 @@ Setup up terminal with
     stow --adopt .
     ```
 
-### All together
-
-```sh
-  sh <(curl -L https://nixos.org/nix/install)
-  cd ~
-  git clone https://github.com/sriramsundhar/dotfiles
-  nix run nix-darwin/master --extra-experimental-features "nix-command flakes" -- switch --flake ~/dotfiles/.config/nix/armMac#armMac
-  cd dotfiles
-  stow --adopt .
-```
-
 ### Git config
-
-- Copy the `.gitconfig.sample` to `.gitconfig`.
-- Change the email
-- Modify to necessary configs
-
-```sh
-cp .gitconfig.sample .gitconfig
-stow --adot .
-```
-
-### Update flake mac
-
-```sh
-nix flake update; nix run nix-darwin -- switch --flake
-```
+- Change the email and necessary configs in [.gitconfig](./.gitconfig).
 
 ### Refrence
 
