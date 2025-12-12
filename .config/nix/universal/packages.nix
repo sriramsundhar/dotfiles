@@ -3,7 +3,6 @@
   pkgs.neovim
   pkgs.tmux
   pkgs.mkalias
-  pkgs.alacritty
   pkgs.git
   pkgs.docker
   (pkgs.google-cloud-sdk.withExtraComponents [
@@ -64,4 +63,5 @@
   pkgs.bun
   pkgs.github-copilot-cli
   pkgs.gemini-cli
+  pkgs.warp-terminal
 ]

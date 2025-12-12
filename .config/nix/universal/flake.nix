@@ -55,8 +55,8 @@
       };
     in
       {
-      darwinConfigurations."universal-arm" = import ./arm.nix { inherit nix-darwin nixpkgs mac-app-util nix-homebrew configuration currentUser; };
-      darwinConfigurations."universal-intel" = import ./intel.nix { inherit nix-darwin nixpkgs mac-app-util nix-homebrew configuration currentUser; };
+      darwinConfigurations."mac-arm" = import ./arm.nix { inherit nix-darwin nixpkgs mac-app-util nix-homebrew configuration currentUser; };
+      darwinConfigurations."mac-intel" = import ./intel.nix { inherit nix-darwin nixpkgs mac-app-util nix-homebrew configuration currentUser; };
       
       packages = nixpkgs.lib.genAttrs linuxSystems (system:
 
