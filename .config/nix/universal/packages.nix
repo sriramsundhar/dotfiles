@@ -63,9 +63,11 @@
   pkgs.bun
   pkgs.github-copilot-cli
   pkgs.gemini-cli
-  pkgs.warp-terminal
+  #pkgs.warp-terminal
   pkgs.mise
   pkgs.awscli2
   pkgs.pnpm
   pkgs.obsidian
+  pkgs.btop
+  #pkgs.litellm
 ]
