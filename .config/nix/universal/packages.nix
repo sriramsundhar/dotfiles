@@ -69,5 +69,5 @@
   pkgs.pnpm
   pkgs.obsidian
   pkgs.btop
-  #pkgs.litellm
+  pkgs.litellm
 ]
