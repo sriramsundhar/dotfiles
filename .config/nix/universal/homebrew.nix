@@ -7,6 +7,8 @@
   casks = [
     "hammerspoon"
     "iina"
+    "docker-desktop"
+    #"background-music"
   ];
   masApps = {
     "Slack" = 803453959;

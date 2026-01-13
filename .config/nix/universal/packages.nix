@@ -70,4 +70,5 @@
   pkgs.obsidian
   pkgs.btop
   pkgs.litellm
+  pkgs.ffmpeg
 ]
