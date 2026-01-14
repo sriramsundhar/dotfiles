@@ -1,0 +1,13 @@
+services:
+  litellm:
+    image: ghcr.io/berriai/litellm:main-latest
+    container_name: litellm
+    ports:
+      - "4000:4000"
+    volumes:
+      - ./config.yml:/app/config.yaml
+    environment:
+      - GITHUB_COPILOT_ACCESS_TOKEN_FILE=/tmp/github_copilot_token.txt
+      - SSL_CERT_FILE=/etc/ssl/certs/ca-certificates.crt
+    entrypoint: /bin/sh -c "echo '${GH_COPILOT_TOKEN}' > /tmp/github_copilot_token.txt && litellm --config /app/config.yaml --port 4000"
+    restart: unless-stopped

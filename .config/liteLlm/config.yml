@@ -1,0 +1,12 @@
+model_list:
+  - model_name: anthropic/claude-sonnet-4.5
+    litellm_params:
+      model: github_copilot/claude-sonnet-4.5
+  
+  - model_name: anthropic/claude-3.5-sonnet
+    litellm_params:
+      model: github_copilot/claude-3.5-sonnet
+  
+  - model_name: anthropic/claude-opus
+    litellm_params:
+      model: github_copilot/claude-opus
