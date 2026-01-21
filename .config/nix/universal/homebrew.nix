@@ -2,7 +2,6 @@
   enable = true;
   brews = [
     "nvm"
-    "yazi"
   ];
   casks = [
     "hammerspoon"

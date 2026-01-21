@@ -71,4 +71,5 @@
   pkgs.btop
   pkgs.litellm
   pkgs.ffmpeg
+  pkgs.yazi
 ]

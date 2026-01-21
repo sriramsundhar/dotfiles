@@ -1,12 +1,35 @@
 model_list:
-  - model_name: anthropic/claude-sonnet-4.5
+  - model_name: claude-sonnet-4.5
     litellm_params:
       model: github_copilot/claude-sonnet-4.5
+      extra_headers:
+        Editor-Version: "vscode/1.95.0"
+        Editor-Plugin-Version: "copilot-chat/0.22.0"
   
-  - model_name: anthropic/claude-3.5-sonnet
+  - model_name: claude-haiku-4.5
+    litellm_params:
+      model: github_copilot/claude-haiku-4.5
+      extra_headers:
+        Editor-Version: "vscode/1.95.0"
+        Editor-Plugin-Version: "copilot-chat/0.22.0"
+  
+  - model_name: claude-opus-4.5
+    litellm_params:
+      model: github_copilot/claude-opus-4.5
+      extra_headers:
+        Editor-Version: "vscode/1.95.0"
+        Editor-Plugin-Version: "copilot-chat/0.22.0"
+  
+  - model_name: claude-sonnet-4
+    litellm_params:
+      model: github_copilot/claude-sonnet-4
+      extra_headers:
+        Editor-Version: "vscode/1.95.0"
+        Editor-Plugin-Version: "copilot-chat/0.22.0"
+  
+  - model_name: claude-3.5-sonnet
     litellm_params:
       model: github_copilot/claude-3.5-sonnet
-  
-  - model_name: anthropic/claude-opus
-    litellm_params:
-      model: github_copilot/claude-opus
+      extra_headers:
+        Editor-Version: "vscode/1.95.0"
+        Editor-Plugin-Version: "copilot-chat/0.22.0"

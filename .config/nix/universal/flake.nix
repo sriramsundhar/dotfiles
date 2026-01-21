@@ -59,7 +59,6 @@
       darwinConfigurations."mac-intel" = import ./intel.nix { inherit nix-darwin nixpkgs mac-app-util nix-homebrew configuration currentUser; };
       
       packages = nixpkgs.lib.genAttrs linuxSystems (system:
-
         let
           pkgs = pkgsFor system;
         in
