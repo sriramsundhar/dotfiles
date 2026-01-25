@@ -1,0 +1,27 @@
+
+{
+  "mcpServers": {
+    "jira": {
+      "command": "docker",
+      "args": [
+        "run", "-i", "--rm",
+        "-e", "JIRA_BASE_URL",
+        "-e", "JIRA_API_TOKEN",
+        "-e", "JIRA_PROJECT_KEY",
+        "-e", "JIRA_VERIFY_SSL",
+        "-e", "JIRA_CLOUD",
+        "-e", "CONFLUENCE_URL",
+        "-e", "CONFLUENCE_PERSONAL_TOKEN",
+        "ghcr.io/sooperset/mcp-atlassian:latest"
+      ],
+      "autoRestart": true,
+      "type": "stdio",
+      "tools": ["*"]
+    },
+    "figma": {
+      "type": "http",
+      "url": "https://mcp.figma.com/mcp",
+      "tools": ["*"]
+    }
+  }
+}
