@@ -1,6 +1,5 @@
 {
   "env": {
-    "ANTHROPIC_AUTH_TOKEN": "litellm-EB35A1E3-EB0F-4A06-81D0-302B15FE0BA",
     "ANTHROPIC_BASE_URL": "http://localhost:4000",
     "ANTHROPIC_MODEL": "claude-sonnet-4.5",
     "ANTHROPIC_DEFAULT_SONNET_MODEL": "claude-sonnet-4.5",

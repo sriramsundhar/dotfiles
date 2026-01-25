@@ -77,3 +77,6 @@ eval "$(tmuxifier init -)"
 eval "$(mise activate zsh)"
 # Added by Antigravity
 export PATH="/Users/admin/.antigravity/antigravity/bin:$PATH"
+export LITELLM_MASTER_KEY=litellm-488292DD-C8C8-4AD1-9F10-0F90B66FB6A2
+export LITELLM_SALT_KEY=litellm-91904D37-0D76-4CC2-9CFA-28CE147D51EA
+export ANTHROPIC_AUTH_TOKEN=$LITELLM_MASTER_KEY
