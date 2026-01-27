@@ -13,7 +13,7 @@
   pkgs.autojump
   pkgs.kubectl
   pkgs.kubernetes-helm
-  pkgs.terraform
+  #pkgs.terraform
   pkgs.httpie
   pkgs.zsh-syntax-highlighting
   pkgs.zsh-history-substring-search
