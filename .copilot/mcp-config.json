@@ -5,11 +5,9 @@
       "command": "docker",
       "args": [
         "run", "-i", "--rm",
-        "-e", "JIRA_BASE_URL",
-        "-e", "JIRA_API_TOKEN",
+        "-e", "JIRA_URL",
+        "-e", "JIRA_PERSONAL_TOKEN",
         "-e", "JIRA_PROJECT_KEY",
-        "-e", "JIRA_VERIFY_SSL",
-        "-e", "JIRA_CLOUD",
         "-e", "CONFLUENCE_URL",
         "-e", "CONFLUENCE_PERSONAL_TOKEN",
         "ghcr.io/sooperset/mcp-atlassian:latest"
@@ -22,6 +20,16 @@
       "type": "http",
       "url": "https://mcp.figma.com/mcp",
       "tools": ["*"]
-    }
+    },
+    "design-system": {
+  		"url": "http://localhost:6006/mcp",
+  		"type": "http",
+  		"headers": {
+  			"X-MCP-Toolsets": "docs"
+  		},
+  		"env": {
+  			"NO_PROXY": "localhost,127.0.0.1"
+  		}
+  	}
   }
 }
