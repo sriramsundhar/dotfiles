@@ -12,7 +12,7 @@ services:
     volumes:
       - ./config.yml:/app/config.yml
       - litellm_config:/root/.config/litellm
-    command: --config /app/config.yml --detailed_debug
+    command: --config /app/config.yml
     depends_on:
       postgres:
         condition: service_healthy
