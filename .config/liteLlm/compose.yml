@@ -7,8 +7,11 @@ services:
     environment:
       - DATABASE_URL=postgresql://litellm:litellm_password@postgres:5432/litellm
       - STORE_MODEL_IN_DB=true
-      - LITELLM_MASTER_KEY=${LITELLM_MASTER_KEY}
-      - LITELLM_SALT_KEY=${LITELLM_SALT_KEY}
+      - UI_USERNAME=admin
+      - UI_PASSWORD=sk-1234
+      - PROXY_ADMIN_ID=admin
+      - LITELLM_LOCAL_MODEL_COST_MAP=true
+      - LITELLM_MODEL_COST_MAP_URL="https://raw.githubusercontent.com/BerriAI/litellm/main/model_prices_and_context_window.json"
     volumes:
       - ./config.yml:/app/config.yml
       - litellm_config:/root/.config/litellm
