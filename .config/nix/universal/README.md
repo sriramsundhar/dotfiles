@@ -7,6 +7,7 @@
     sh <(curl -L https://nixos.org/nix/install)
   ```
 - Clone the repository at the home directory
+
   ```sh
     cd ~
     git clone https://github.com/sriramsundhar/dotfiles
@@ -51,5 +52,5 @@ sudo launchctl start org.nixos.nix-daemon
 ```sh
 security export -t certs -f pemseq -k /Library/Keychains/System.keychain -o  ~/.certs/ca_cert.pem
 export NIX_SSL_CERT_FILE=${HOME}/.certs/ca_cert.pem
-`
+echo "ssl-cert-file = ${HOME}/.certs/ca_cert.pem" | sudo tee -a /etc/nix/nix.conf
 ```

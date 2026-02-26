@@ -32,7 +32,7 @@
   pkgs.direnv
   pkgs.nix-direnv
   pkgs.jq
-  pkgs.nodejs_22
+  pkgs.nodejs_24
   pkgs.python3
   pkgs.mas
   pkgs.helix
@@ -72,4 +72,5 @@
   pkgs.litellm
   pkgs.ffmpeg
   pkgs.yazi
+  pkgs.postman
 ]
