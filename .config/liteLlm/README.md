@@ -8,7 +8,7 @@ This directory contains configuration for running LiteLLM as a proxy server for 
 
 Start the LiteLLM proxy server using the config file:
 ```bash
-litellm --config config.yml
+docker compose up -d
 ```
 The server will start on `http://0.0.0.0:4000` by default.
 
@@ -17,6 +17,10 @@ Run Claude
 ```sh
 claude
 ```
+
+## Notes
+- Check environment variables in [compose.yml](./compose.yml), [zshrc](../../.zshrc) and claude [settings](../../.claude/settings.json).
+- Find all available models [here](https://models.litellm.ai/)
 
 This will use claude settings from the [settings.yml](../.claude/settings.yml) file.
 Make sure to enable the settings using `stow`.
