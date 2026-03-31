@@ -73,7 +73,7 @@ alias fz='nvim $(fzf -m --preview="bat --color=always {}")'
 
 # Shell integrations
 eval "$(fzf --zsh)"
-eval "$(zoxide init --cmd cd zsh)"
+eval "$(zoxide init zsh)"
 export PATH="$PATH:$HOME/bin:$HOME/.tmux/plugins/tmuxifier/bin"
 eval "$(tmuxifier init -)"
 eval "$(mise activate zsh)"
