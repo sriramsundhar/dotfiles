@@ -71,4 +71,5 @@
   pkgs.yazi
   pkgs.postman
   pkgs.sesh
+  pkgs.tree-sitter
 ]
