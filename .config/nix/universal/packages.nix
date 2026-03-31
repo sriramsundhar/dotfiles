@@ -35,9 +35,7 @@
   pkgs.nodejs_24
   pkgs.python3
   pkgs.mas
-  pkgs.helix
-  pkgs.helix-gpt
-  pkgs.confluent-cli
+  # pkgs.confluent-cli
   pkgs.ripgrep
   pkgs.fd
   pkgs.bat
