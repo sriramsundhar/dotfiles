@@ -39,6 +39,21 @@ model_list:
       extra_headers:
         Editor-Version: "vscode/1.95.0"
         Editor-Plugin-Version: "copilot-chat/0.22.0"
+  
+  - model_name: gpt-4
+    litellm_params:
+      model: github_copilot/gpt-4
+      extra_headers:
+        Editor-Version: "vscode/1.95.0"
+        Editor-Plugin-Version: "copilot-chat/0.22.0"
+
+  - model_name: gpt-4o-mini
+    litellm_params:
+      model: github_copilot/gpt-4o-mini
+      extra_headers:
+        Editor-Version: "vscode/1.95.0"
+        Editor-Plugin-Version: "copilot-chat/0.22.0"
+
 
 litellm_settings:
   drop_params: True

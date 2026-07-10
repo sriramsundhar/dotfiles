@@ -55,7 +55,7 @@
   # pkgs.crewai
   pkgs.go
   pkgs.wget
-  pkgs.jdk11
+  pkgs.jdk25
   pkgs.luajitPackages.luarocks_bootstrap
   pkgs.lazydocker
   pkgs.bun

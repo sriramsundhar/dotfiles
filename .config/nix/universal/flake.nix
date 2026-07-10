@@ -5,10 +5,11 @@
     nix-darwin.url = "github:LnL7/nix-darwin/master";
     mac-app-util.url = "github:hraban/mac-app-util";
     nix-homebrew.url = "github:zhaofengli/nix-homebrew";
+    herdr.url = "github:ogulcancelik/herdr/v0.7.3";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs, mac-app-util, nix-homebrew }:
+  outputs = inputs@{ self, nix-darwin, nixpkgs, mac-app-util, nix-homebrew, herdr }:
     let
       #currentUser = builtins.baseNameOf(builtins.getEnv("HOME"));
       currentUser = "admin";
@@ -21,7 +22,7 @@
         nixpkgs.config.allowUnfree = true;
         nixpkgs.config.allowUnstable = true;
         # nixpkgs.config.allowInsecure = true;
-        environment.systemPackages = packages { inherit pkgs; };
+        environment.systemPackages = packages { inherit pkgs; } ++ [ inputs.herdr.packages.${pkgs.system}.default ];
         homebrew = homebrew;
         fonts.packages = fonts { inherit pkgs; };
 

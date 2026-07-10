@@ -14,6 +14,7 @@ return {
         "lua_ls",
         "ts_ls",
         "bashls",
+        "jdtls",
       },
     },
   },
@@ -22,6 +23,7 @@ return {
     lazy = false,
     config = function()
       vim.lsp.enable('lua_ls')
+      vim.lsp.enable('jdtls')
       vim.lsp.enable('tsp_server')
       vim.lsp.enable('bashls')
       vim.lsp.enable('tflint')
