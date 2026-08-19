@@ -56,6 +56,8 @@
   pkgs.go
   pkgs.wget
   pkgs.jdk25
+  pkgs.maven
+  pkgs.cargo
   pkgs.luajitPackages.luarocks_bootstrap
   pkgs.lazydocker
   pkgs.bun

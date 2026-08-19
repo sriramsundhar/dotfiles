@@ -1,0 +1,28 @@
+onboarding = false
+# herdr configuration
+# Keybindings ported from ~/.tmux.conf
+
+[theme]
+# tmux: set -g @plugin 'catppuccin/tmux' (@catppuccin_flavor "mocha")
+name = "catppuccin"
+# Follow the host terminal's light/dark appearance.
+auto_switch = true
+dark_name = "catppuccin"          # mocha
+light_name = "catppuccin-latte"
+
+[keys]
+# tmux: set -g prefix C-s
+prefix = "ctrl+s"
+
+focus_pane_left = "ctrl+h"
+focus_pane_down = "ctrl+j"
+focus_pane_up = "ctrl+k"
+focus_pane_right = "ctrl+l"
+
+split_vertical = "prefix+%"
+split_horizontal = 'prefix+"'
+new_tab = "prefix+c"
+toggle_sidebar = "prefix+p"
+
+[experimental]
+kitty_graphics = true

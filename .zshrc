@@ -1,5 +1,11 @@
 #only for bell
 source ~/.zprofile
+
+# Source nix-darwin environment
+if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
+  . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
+fi
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -74,11 +80,10 @@ alias fz='nvim $(fzf -m --preview="bat --color=always {}")'
 # Shell integrations
 eval "$(fzf --zsh)"
 eval "$(zoxide init zsh)"
-export PATH="$PATH:$HOME/bin:$HOME/.tmux/plugins/tmuxifier/bin"
+# Ensure nix-darwin system packages take priority over system binaries
+export PATH="/run/current-system/sw/bin:$PATH:$HOME/bin:$HOME/.tmux/plugins/tmuxifier/bin"
 eval "$(tmuxifier init -)"
 eval "$(mise activate zsh)"
-# Added by Antigravity
-export PATH="/Users/admin/.antigravity/antigravity/bin:$PATH"
 #litellm dummy
 export LITELLM_MASTER_KEY=sk-1234
 export LITELLM_SALT_KEY=sk1234
