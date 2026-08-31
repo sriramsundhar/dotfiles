@@ -12,7 +12,7 @@
   outputs = inputs@{ self, nix-darwin, nixpkgs, mac-app-util, nix-homebrew, herdr }:
     let
       #currentUser = builtins.baseNameOf(builtins.getEnv("HOME"));
-      currentUser = "admin";
+      currentUser = "sriram";
       packages = import ./packages.nix;
       homebrew = import ./homebrew.nix;
       fonts = import ./fonts.nix;
@@ -22,7 +22,7 @@
         nixpkgs.config.allowUnfree = true;
         nixpkgs.config.allowUnstable = true;
         # nixpkgs.config.allowInsecure = true;
-        environment.systemPackages = packages { inherit pkgs; } ++ [ inputs.herdr.packages.${pkgs.system}.default ];
+        environment.systemPackages = packages { inherit pkgs; };
         homebrew = homebrew;
         fonts.packages = fonts { inherit pkgs; };
 

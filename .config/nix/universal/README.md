@@ -18,11 +18,11 @@
 
 - Install packages with nix in mac-arm.
   ```sh
-  sudo nix run nix-darwin/master --extra-experimental-features "nix-command flakes" -- switch --flake .#arm-mac
+  sudo nix run nix-darwin/master --extra-experimental-features "nix-command flakes" -- switch --flake .#mac-arm
   ```
 - Install packages with nix in mac-intel
   ```sh
-  sudo nix run nix-darwin/master --extra-experimental-features "nix-command flakes" -- switch --flake .#arm-mac
+  sudo nix run nix-darwin/master --extra-experimental-features "nix-command flakes" -- switch --flake .#mac-intel
   ```
 - Install packages with nix in linux or windows WS
   ```sh

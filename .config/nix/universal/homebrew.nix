@@ -3,6 +3,7 @@
   brews = [
     "nvm"
     "akka/brew/akka"
+    "herdr"
   ];
   casks = [
     "hammerspoon"

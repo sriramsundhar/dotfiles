@@ -16,21 +16,4 @@
       "type": "stdio",
       "tools": ["*"]
     },
-    "figma": {
-      "type": "http",
-      "url": "https://mcp.figma.com/mcp",
-      "tools": ["*"]
-    },
-    "design-system": {
-  		"url": "http://localhost:6006/mcp",
-  		"type": "http",
-  		"headers": {
-  			"X-MCP-Toolsets": "docs"
-  		},
-  		"env": {
-  			"NO_PROXY": "localhost,127.0.0.1"
-  		},
-  		"tools": ["*"]
-  	}
-  }
 }
