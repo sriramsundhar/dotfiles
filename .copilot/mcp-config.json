@@ -1,19 +1,10 @@
 
 {
   "mcpServers": {
-    "jira": {
-      "command": "docker",
-      "args": [
-        "run", "-i", "--rm",
-        "-e", "JIRA_URL",
-        "-e", "JIRA_PERSONAL_TOKEN",
-        "-e", "JIRA_PROJECT_KEY",
-        "-e", "CONFLUENCE_URL",
-        "-e", "CONFLUENCE_PERSONAL_TOKEN",
-        "ghcr.io/sooperset/mcp-atlassian:latest"
-      ],
-      "autoRestart": true,
-      "type": "stdio",
-      "tools": ["*"]
-    },
+    "github": {
+      "type": "http",
+      "url": "https://api.githubcopilot.com/mcp/"
+    }
+  }
 }
+

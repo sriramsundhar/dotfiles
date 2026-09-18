@@ -82,10 +82,15 @@ eval "$(fzf --zsh)"
 eval "$(zoxide init zsh)"
 # Ensure nix-darwin system packages take priority over system binaries
 export PATH="/run/current-system/sw/bin:$PATH:$HOME/bin:$HOME/.tmux/plugins/tmuxifier/bin"
-eval "$(tmuxifier init -)"
+#eval "$(tmuxifier init -)"
 eval "$(mise activate zsh)"
 #litellm dummy
 export LITELLM_MASTER_KEY=sk-1234
 export LITELLM_SALT_KEY=sk1234
-export ANTHROPIC_AUTH_TOKEN=$LITELLM_MASTER_KEY
+#export ANTHROPIC_AUTH_TOKEN=$LITELLM_MASTER_KEY
 
+
+
+
+# Added by Antigravity CLI installer
+export PATH="/Users/sriram/.local/bin:$PATH"

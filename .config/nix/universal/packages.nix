@@ -74,4 +74,5 @@
   pkgs.postman
   pkgs.sesh
   pkgs.tree-sitter
+  pkgs.colima
 ]

@@ -8,7 +8,6 @@
   casks = [
     "hammerspoon"
     "iina"
-    "docker-desktop"
     #"background-music"
   ];
   masApps = {
