@@ -62,7 +62,6 @@
   pkgs.lazydocker
   pkgs.bun
   pkgs.github-copilot-cli
-  pkgs.gemini-cli
   # pkgs.warp-terminal
   pkgs.mise
   pkgs.awscli2
@@ -75,4 +74,7 @@
   pkgs.sesh
   pkgs.tree-sitter
   pkgs.colima
+  pkgs.warp-terminal
+  pkgs.sbt
+  pkgs.scala
 ]

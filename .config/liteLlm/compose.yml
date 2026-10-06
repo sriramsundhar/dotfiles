@@ -12,6 +12,8 @@ services:
       - PROXY_ADMIN_ID=admin
       - LITELLM_LOCAL_MODEL_COST_MAP=true
       - LITELLM_MODEL_COST_MAP_URL="https://raw.githubusercontent.com/BerriAI/litellm/main/model_prices_and_context_window.json"
+      - VERTEXAI_API_KEY=${VERTEXAI_API_KEY}
+      - LITELLM_DANGEROUSLY_PERMIT_WEAK_OR_UNSET_MASTER_KEY=true
     volumes:
       - ./config.yml:/app/config.yml
       - litellm_config:/root/.config/litellm

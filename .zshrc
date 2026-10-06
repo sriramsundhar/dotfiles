@@ -1,4 +1,3 @@
-#only for bell
 source ~/.zprofile
 
 # Source nix-darwin environment
@@ -88,9 +87,8 @@ eval "$(mise activate zsh)"
 export LITELLM_MASTER_KEY=sk-1234
 export LITELLM_SALT_KEY=sk1234
 #export ANTHROPIC_AUTH_TOKEN=$LITELLM_MASTER_KEY
+export JAVA_HOME="$(nix eval nixpkgs#jdk25.outPath --raw)"
 
 
+export PATH="$HOME/.cargo/bin:/Users/sriram/.local/bin:$PATH"
 
-
-# Added by Antigravity CLI installer
-export PATH="/Users/sriram/.local/bin:$PATH"
