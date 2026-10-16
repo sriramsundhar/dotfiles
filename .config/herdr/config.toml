@@ -20,4 +20,4 @@ toggle_sidebar = "prefix+p"
 kitty_graphics = true
 
 [ui.toast]
-delivery = "terminal"
+delivery = "herdr"
