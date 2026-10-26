@@ -1,5 +1,10 @@
 {
-  "model": "sonnet",
+  "attribution": {
+    "commit": "",
+    "pr": "",
+    "sessionUrl": false
+  },
+  "model": "opus",
   "hooks": {
     "SessionStart": [
       {
@@ -14,20 +19,33 @@
       }
     ]
   },
+  "enabledPlugins": {
+    "akka@ai-marketplace": true,
+    "akka-ext@akka-ext": true
+  },
   "extraKnownMarketplaces": {
     "ai-marketplace": {
       "source": {
         "source": "github",
         "repo": "akka/ai-marketplace"
       }
+    },
+    "akka-ext": {
+      "source": {
+        "source": "directory",
+        "path": "/Users/sriram/code/akka-ext-plugin"
+      }
     }
   },
   "modelSettings": {
     "claude-sonnet-5": {
       "effortLevel": "high"
+    },
+    "claude-sonnet-5-5": {
+      "effortLevel": "high"
+    },
+    "claude-opus-5-5": {
+      "effortLevel": "high"
     }
-  },
-  "enabledPlugins": {
-    "akka@ai-marketplace": true
   }
 }

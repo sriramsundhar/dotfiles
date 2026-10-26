@@ -8,6 +8,7 @@
   casks = [
     "hammerspoon"
     "iina"
+    "vorssaint"
     #"background-music"
   ];
   masApps = {

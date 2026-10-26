@@ -9,7 +9,7 @@ Setup up terminal with
 
 ## Setup nix
 
-Follow instructions [here](./.config/nix/universal/README.md).
+Follow instructions [here in readme file](./.config/nix/universal/README.md).
 
 ## Setup the terminal with stow
 
@@ -19,6 +19,7 @@ Follow instructions [here](./.config/nix/universal/README.md).
 ```
 
 - If you have conflicts, you can force stow to overwrite the files
+
   ```sh
   cd ~/dotfiles
   stow --adopt .

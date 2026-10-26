@@ -77,4 +77,5 @@
   pkgs.warp-terminal
   pkgs.sbt
   pkgs.scala
+  pkgs.mermaid-cli
 ]
