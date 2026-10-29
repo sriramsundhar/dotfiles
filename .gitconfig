@@ -19,5 +19,7 @@
 	tool = smerge
 [mergetool "smerge"]
 	trustExitCode = true
-  cmd = smerge mergetool \"$BASE\" \"$LOCAL\" \"$REMOTE\" -o \"$MERGED\"
+    cmd = smerge mergetool \"$BASE\" \"$LOCAL\" \"$REMOTE\" -o \"$MERGED\"
 
+[core]
+	editor = nvim

@@ -78,4 +78,5 @@
   pkgs.sbt
   pkgs.scala
   pkgs.mermaid-cli
+  pkgs.imagemagick
 ]
