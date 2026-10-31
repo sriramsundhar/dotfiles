@@ -79,4 +79,6 @@
   pkgs.scala
   pkgs.mermaid-cli
   pkgs.imagemagick
+  pkgs.protobuf
+  pkgs.lens
 ]
